@@ -4,9 +4,10 @@ const API = "https://api.escuelajs.co/api/v1/products?offset=0&limit=10"
 const main = async () => {
     try {
         const response = await fetch(API)
-        const products = response.json()
+        const products = await response.json()
+        
 
-        const output = products?.map( item => {
+        const output = products.map( item => {
             return `
             <article class="Card">
                 <img src="${item.images[0]}">
